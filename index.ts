@@ -17,12 +17,22 @@ app.use(express.static(path.join(__dirname, "Client")));
 app.use(express.static(path.join(__dirname, "Views")));
 
 // Routing
-app.get('/', (req, res) => {
+
+// default route
+app.get('/', (req, res) => 
+  {
+    displaySPA(res);
+  });
+
+// wild card route
+app.get('*', (req, res) =>
+  {
     displaySPA(res);
   });
 
   // kicks off the server and listens on PORT
-app.listen(PORT, () => {
+app.listen(PORT, () => 
+  {
     console.log(`Server running at http://${HOST}:${PORT}/`);
   });
 
